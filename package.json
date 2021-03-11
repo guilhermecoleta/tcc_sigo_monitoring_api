@@ -1,0 +1,17 @@
+{
+  "name": "sigo-monitoring-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chance": "^1.1.7",
+    "random-item": "^3.1.0",
+    "restify": "^8.5.1"
+  }
+}
