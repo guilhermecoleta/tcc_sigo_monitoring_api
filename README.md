@@ -19,23 +19,22 @@ ocorre por meio de arquivos JSON.
 
 ### Executando o projeto localmente
 
-###Pré requisitos
+### Pré requisitos
 - Node instalado
 https://nodejs.org/pt-br/download/package-manager/
 
-#####Instalando modulos
+##### Instalando modulos
 `npm install`
 
-#####Gerando o build do projeto
+##### Gerando o build do projeto
 `npm start`
 
 
-###Acessando a aplicação
+### Acessando a aplicação
 
-###Swagger
 
-#####Local
+##### Local
 http://localhost:8080/monitors
 
-#####Produção
+##### Produção
 https://sigo-monitoring-api.herokuapp.com/monitors
