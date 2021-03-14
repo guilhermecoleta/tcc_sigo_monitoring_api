@@ -12,6 +12,7 @@
   "dependencies": {
     "chance": "^1.1.7",
     "random-item": "^3.1.0",
-    "restify": "^8.5.1"
+    "restify": "^8.5.1",
+    "restify-cors-middleware": "^1.1.1"
   }
 }
