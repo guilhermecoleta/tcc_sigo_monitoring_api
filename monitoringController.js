@@ -13,14 +13,16 @@ var monitoring = function (req, res, next) {
         let numberSells = chance.integer({ min: 1, max: 5 });
 
         for (let index = 0; index <= numberSells; index ++){
+            let day = chance.integer({ min: 1, max: 14 });
+
             let data = {
                 seller: sellerName,
-                dat: chance.date({year: 2021, month: 3}),
+                dat: chance.date({year: 2021, month: 3, day: day}),
                 value_total: 0,
                 products: []
             };
 
-            let listProducts = randomItem.multiple(products, chance.integer({ min: 1, max: 23 }));
+            let listProducts = randomItem.multiple(products, chance.integer({ min: 1, max: 10 }));
 
             listProducts.forEach(function(productName) {
                 var product = {
