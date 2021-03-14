@@ -6,7 +6,7 @@ module.exports = {
     monitoring: (req, res, next) => {
         var chance = new Chance();
 
-        var size = 1000;
+        var size = 10;
 
         var list = [];
         
