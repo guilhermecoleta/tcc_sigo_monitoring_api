@@ -1,29 +1,31 @@
 var Chance = require('chance');
 var randomItem = require('random-item');
-var tecidos = require('./tecidos');
-module.exports = {
+const { products }= require('./products');
+const { sellers } = require('./sellers');
+const { suppliers } = require('./suppliers');
 
-    monitoring: (req, res, next) => {
-        var chance = new Chance();
+var monitoring = function (req, res, next) {
+    var list = [];
 
-        var size = 10;
+    let chance = new Chance();
 
-        var list = [];
-        
-        for(var i = 0; i <= size; i++){
-            var data = {
-                seller: chance.name(),
+    sellers.forEach(function(sellerName){
+        let numberSells = chance.integer({ min: 1, max: 5 });
+
+        for (let index = 0; index <= numberSells; index ++){
+            let data = {
+                seller: sellerName,
                 dat: chance.date({year: 2021, month: 3}),
                 value_total: 0,
                 products: []
             };
 
-            var listTecidos = randomItem.multiple(tecidos.tecidos, chance.integer({ min: 1, max: 23 }));
-            
-            listTecidos.forEach(function(tecido) {
+            let listProducts = randomItem.multiple(products, chance.integer({ min: 1, max: 23 }));
+
+            listProducts.forEach(function(productName) {
                 var product = {
-                    name: tecido,
-                    supplier: chance.name(),
+                    name: productName,
+                    supplier: randomItem(suppliers),
                     value: chance.floating({ min: 0, max: 100, fixed: 2 }),
                     quantity: chance.integer({ min: 1, max: 100 })
                 }
@@ -37,9 +39,10 @@ module.exports = {
 
             list.push(data);
         }
-       
-        res.send(list);
-        next();
-    }
+    });
 
+    res.send(list);
+    next();
 }
+
+module.exports = { monitoring };
